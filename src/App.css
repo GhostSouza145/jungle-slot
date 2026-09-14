@@ -1,0 +1,657 @@
+/* =========================================
+   RESET
+========================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #0b0d10;
+
+  color: #f4f4f5;
+}
+
+/* =========================================
+   GAME
+========================================= */
+
+.game {
+  min-height: 100vh;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      #171b22 0%,
+      #0d1014 42%,
+      #090b0e 100%
+    );
+
+  padding: 24px 24px 40px;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* textura muito discreta */
+
+.game::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  opacity: 0.025;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+  width: min(1000px, 100%);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  z-index: 2;
+
+  margin-bottom: 30px;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #f0f0f2;
+
+  color: #101114;
+
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.brand h1 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  letter-spacing: -0.4px;
+}
+
+.brand span:not(.brand-mark) {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #707782;
+
+  font-size: 10px;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1.5px;
+}
+
+/* =========================================
+   BALANCE
+========================================= */
+
+.balance-box {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 2px;
+}
+
+.balance-box span {
+  color: #707782;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.balance-box strong {
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* =========================================
+   GAME SECTION
+========================================= */
+
+.game-section {
+  width: min(820px, 100%);
+
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   TITLE
+========================================= */
+
+.game-title {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 12px;
+}
+
+.game-title span {
+  color: #69717c;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.8px;
+}
+
+.game-title h2 {
+  margin: 3px 0 0;
+
+  font-size: 20px;
+  font-weight: 700;
+
+  letter-spacing: -0.5px;
+}
+
+/* =========================================
+   CONNECTION
+========================================= */
+
+.connection {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: #646b75;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.connection.connected {
+  color: #7dd3a6;
+}
+
+.connection-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #555b64;
+}
+
+.connection.connected .connection-dot {
+  background: #69d391;
+
+  box-shadow:
+    0 0 8px rgba(105, 211, 145, 0.5);
+}
+
+/* =========================================
+   PIXI CANVAS
+========================================= */
+
+.game-canvas {
+  width: 100%;
+
+  min-height: 440px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #101318;
+
+  border: 1px solid #252a31;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+/* =========================================
+   RESULT MESSAGE
+========================================= */
+
+.result-message {
+  min-height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 13px;
+
+  color: #7b838e;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.result-message.win {
+  color: #9ee7ba;
+}
+
+/* =========================================
+   CONTROLS
+========================================= */
+
+.controls {
+  width: min(600px, 100%);
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  gap: 14px;
+
+  margin-top: 25px;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================
+   BET
+========================================= */
+
+.bet-control {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+.bet-control > span {
+  color: #69717c;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.bet-input-wrapper {
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+
+  background: #111419;
+
+  border: 1px solid #282e36;
+
+  border-radius: 9px;
+
+  overflow: hidden;
+}
+
+.bet-input-wrapper button {
+  width: 38px;
+  height: 100%;
+
+  border: none;
+
+  background: transparent;
+
+  color: #8e96a1;
+
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.bet-input-wrapper button:hover:not(:disabled) {
+  background: #1b2027;
+
+  color: #ffffff;
+}
+
+.bet-input-wrapper button:disabled {
+  opacity: 0.3;
+
+  cursor: not-allowed;
+}
+
+.bet-input-wrapper input {
+  width: 70px;
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  text-align: center;
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Remove setas do input */
+
+.bet-input-wrapper input::-webkit-outer-spin-button,
+.bet-input-wrapper input::-webkit-inner-spin-button {
+  margin: 0;
+
+  -webkit-appearance: none;
+}
+
+.bet-input-wrapper input[type="number"] {
+  appearance: textfield;
+}
+
+/* =========================================
+   SPIN BUTTON
+========================================= */
+
+.spin-button {
+  height: 52px;
+
+  min-width: 180px;
+
+  padding: 0 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 9px;
+
+  background: #f1f1f3;
+
+  color: #111317;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.15s,
+    background 0.15s,
+    box-shadow 0.15s;
+}
+
+.spin-button span {
+  font-size: 14px;
+  font-weight: 900;
+
+  letter-spacing: 0.7px;
+}
+
+.spin-button small {
+  margin-top: 1px;
+
+  color: #777b83;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.spin-button:hover:not(:disabled) {
+  background: #ffffff;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 8px 25px rgba(255, 255, 255, 0.08);
+}
+
+.spin-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.spin-button:disabled {
+  opacity: 0.5;
+
+  cursor: not-allowed;
+}
+
+/* =========================================
+   RESULT PANEL
+========================================= */
+
+.result-panel {
+  width: min(600px, 100%);
+
+  margin-top: 28px;
+
+  padding: 15px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid #20252c;
+
+  border-bottom: 1px solid #20252c;
+
+  position: relative;
+  z-index: 1;
+}
+
+.result-panel > span {
+  color: #626a74;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 1.5px;
+}
+
+.result-symbols {
+  display: flex;
+
+  gap: 8px;
+}
+
+.result-symbol {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #15191f;
+
+  border: 1px solid #272d35;
+
+  border-radius: 7px;
+
+  font-size: 18px;
+}
+
+.win-value {
+  color: #9ee7ba;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+  margin-top: 35px;
+
+  color: #414750;
+
+  font-size: 9px;
+
+  letter-spacing: 0.8px;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 700px) {
+  .game {
+    padding: 18px 14px 30px;
+  }
+
+  .topbar {
+    margin-bottom: 20px;
+  }
+
+  .game-canvas {
+    min-height: 380px;
+  }
+
+  .controls {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 500px) {
+  .game-title h2 {
+    font-size: 17px;
+  }
+
+  .game-canvas {
+    min-height: 340px;
+
+    border-radius: 10px;
+  }
+
+  .controls {
+    gap: 10px;
+  }
+
+  .bet-input-wrapper {
+    height: 48px;
+  }
+
+  .bet-input-wrapper input {
+    width: 55px;
+  }
+
+  .spin-button {
+    height: 48px;
+
+    min-width: 150px;
+  }
+
+  .result-panel {
+    padding: 13px 5px;
+  }
+}
+
+/* =========================================
+   MOBILE PEQUENO
+========================================= */
+
+@media (max-width: 380px) {
+  .controls {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .bet-input-wrapper {
+    width: 100%;
+  }
+
+  .spin-button {
+    width: 100%;
+  }
+
+  .result-panel {
+    flex-wrap: wrap;
+
+    gap: 12px;
+  }
+}

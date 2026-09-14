@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="badgeBg2" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#332c16"/>
+      <stop offset="55%" stop-color="#171408"/>
+      <stop offset="100%" stop-color="#050402"/>
+    </radialGradient>
+    <linearGradient id="goldRing2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbe6a8"/>
+      <stop offset="45%" stop-color="#c99a3f"/>
+      <stop offset="100%" stop-color="#7a5518"/>
+    </linearGradient>
+    <radialGradient id="lemonBody" cx="38%" cy="32%" r="75%">
+      <stop offset="0%" stop-color="#fffbe0"/>
+      <stop offset="40%" stop-color="#ffd93f"/>
+      <stop offset="100%" stop-color="#d68c12"/>
+    </radialGradient>
+    <linearGradient id="leaf2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a4e07a"/>
+      <stop offset="100%" stop-color="#3f7a2e"/>
+    </linearGradient>
+  </defs>
+
+  <circle cx="100" cy="100" r="93" fill="url(#badgeBg2)"/>
+  <circle cx="100" cy="100" r="93" fill="none" stroke="url(#goldRing2)" stroke-width="5"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <path d="M100 52 C93 44 80 44 76 50 C83 54 91 56 97 58 Z" fill="url(#leaf2)"/>
+
+  <path d="M100 54
+           C130 54 150 78 150 106
+           C150 136 128 156 100 156
+           C72 156 50 136 50 106
+           C50 78 70 54 100 54 Z"
+        fill="url(#lemonBody)"/>
+
+  <path d="M100 54 C104 50 108 50 111 53 C106 56 102 57 98 58 Z" fill="#e0b52e" opacity="0.7"/>
+  <path d="M100 154 C104 158 108 158 111 155 C106 152 102 151 98 150 Z" fill="#b97a12" opacity="0.7"/>
+
+  <path d="M68 82 C74 100 74 118 66 134" fill="none" stroke="#c98f16" stroke-opacity="0.35" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M132 84 C126 102 126 118 134 132" fill="none" stroke="#c98f16" stroke-opacity="0.35" stroke-width="2.5" stroke-linecap="round"/>
+
+  <ellipse cx="80" cy="80" rx="12" ry="7" fill="#ffffff" opacity="0.45" transform="rotate(-25 80 80)"/>
+</svg>

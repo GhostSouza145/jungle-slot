@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 200 200">
+  <defs>
+    <radialGradient id="badgeBg3" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#332711"/>
+      <stop offset="55%" stop-color="#181206"/>
+      <stop offset="100%" stop-color="#050301"/>
+    </radialGradient>
+    <linearGradient id="goldRing3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff3cf"/>
+      <stop offset="45%" stop-color="#e0ad3f"/>
+      <stop offset="100%" stop-color="#8a5f18"/>
+    </linearGradient>
+    <radialGradient id="starGrad" cx="42%" cy="38%" r="70%">
+      <stop offset="0%" stop-color="#fffbe6"/>
+      <stop offset="40%" stop-color="#ffd23f"/>
+      <stop offset="100%" stop-color="#b3720c"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="100" cy="100" r="93" fill="url(#badgeBg3)"/>
+  <circle cx="100" cy="100" r="93" fill="none" stroke="url(#goldRing3)" stroke-width="5"/>
+  <circle cx="100" cy="100" r="86" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="1.5"/>
+
+  <polygon points="100,36 115.87,78.16 160.87,80.22 125.68,108.34 137.62,151.78 100,127 62.38,151.78 74.32,108.34 39.13,80.22 84.13,78.16"
+           fill="url(#starGrad)" stroke="#7a4a06" stroke-width="2" stroke-linejoin="round"/>
+
+  <path d="M77 58 l4 10 l10 4 l-10 4 l-4 10 l-4 -10 l-10 -4 l10 -4 Z" fill="#ffffff" opacity="0.55"/>
+  <path d="M138 128 l3 7 l7 3 l-7 3 l-3 7 l-3 -7 l-7 -3 l7 -3 Z" fill="#ffffff" opacity="0.4"/>
+</svg>
