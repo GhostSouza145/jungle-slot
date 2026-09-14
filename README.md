@@ -2,6 +2,8 @@
 
 Protótipo de caça-níquel (slot machine) feito com **React + TypeScript + PixiJS** no frontend e um servidor **Express + WebSocket** no backend.
 
+![Jungle Slot](docs/screenshot.png)
+
 ## Stack
 
 - **Frontend:** React 19, TypeScript, Vite, PixiJS (renderização do jogo em canvas)
